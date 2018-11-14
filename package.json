@@ -1,0 +1,38 @@
+{
+  "name": "alioss-pocessing-utils",
+  "version": "0.0.1",
+  "description": "Easy to generate the processing API of AliOSS.",
+  "main": "dist/index.js",
+  "devDependencies": {
+    "@types/jest": "^23.3.9",
+    "jest": "^23.6.0",
+    "nodemon": "^1.18.6",
+    "prettier": "^1.15.2",
+    "ts-jest": "^23.10.4",
+    "tslint": "^5.11.0",
+    "typescript": "^3.1.6"
+  },
+  "scripts": {
+    "build": "npm run ts",
+    "ts": "tsc",
+    "ts-watch": "tsc -w",
+    "tslint": "tslint -c tslint.json -p tsconfig.json",
+    "test": "jest",
+    "test-watch": "jest --watch",
+    "format": "prettier --write 'src/**/*.ts'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xyy94813/alioss-pocessing-utils-js.git"
+  },
+  "keywords": [
+    "AliOSS",
+    "processing"
+  ],
+  "author": "xyy94813@sina.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xyy94813/alioss-pocessing-utils-js/issues"
+  },
+  "homepage": "https://github.com/xyy94813/alioss-pocessing-utils-js#readme"
+}

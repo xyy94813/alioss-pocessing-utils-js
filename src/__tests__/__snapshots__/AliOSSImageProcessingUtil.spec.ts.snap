@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AliOSSImageProcessingUtil getAliOSSImageCircleAPI radius is normal 1`] = `"https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg?x-oss-process=image/circle,r_100"`;
+
+exports[`AliOSSImageProcessingUtil getAliOSSImageCropAPI set width and height 1`] = `"https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg?x-oss-process=image/crop,w_100,h_100"`;
+
+exports[`AliOSSImageProcessingUtil getAliOSSImageIndexcropAPI x is 100 and i is 0 1`] = `"https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg?x-oss-process=image/indexcrop,x_100,i_100"`;
+
+exports[`AliOSSImageProcessingUtil getAliOSSImageResizeAPI with mode mode is fill 1`] = `"https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg?x-oss-process=image/resize,m_fill"`;
+
+exports[`AliOSSImageProcessingUtil getAliOSSImageResizeAPI with mode mode is fixed 1`] = `"https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg?x-oss-process=image/resize,m_fixed"`;
+
+exports[`AliOSSImageProcessingUtil getAliOSSImageResizeAPI with mode mode is lfit 1`] = `"https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg?x-oss-process=image/resize,m_lfit"`;
+
+exports[`AliOSSImageProcessingUtil getAliOSSImageResizeAPI with mode mode is mfit 1`] = `"https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg?x-oss-process=image/resize,m_mfit"`;
+
+exports[`AliOSSImageProcessingUtil getAliOSSImageResizeAPI with mode mode is pad 1`] = `"https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg?x-oss-process=image/resize,m_pad"`;

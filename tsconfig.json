@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "ES2017",
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    // "sourceMap": true,
+    "declaration": true,
+    "allowSyntheticDefaultImports": true,
+    "removeComments": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "outDir": "dist",
+    "baseUrl": ".",
+    "lib": ["es2015", "esnext.asynciterable"]
+  },
+  "style": {
+    "quotemark": [true, "single"],
+    "object-literal-sort-keys": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules/**/*", "__tests__/**/*", "**/*.spec.ts"]
+}
