@@ -33,3 +33,7 @@ coverage
 decls
 examples
 .circleci
+.prettierrc
+jest.config.js
+tsconfig.json
+tslint.json
