@@ -3,7 +3,6 @@
 Easy to generate the processing API of AliOSS.
 
 [![CircleCI branch](https://img.shields.io/circleci/project/github/xyy94813/alioss-pocessing-utils-js/master.svg?style=flat-square)](https://circleci.com/gh/xyy94813/alioss-pocessing-utils-js)
-[![Codecov](https://img.shields.io/codecov/c/github/xyy94813/alioss-pocessing-utils-js/master.svg?style=flat-square)](https://codecov.io/gh/xyy94813/alioss-pocessing-utils-js/branch/master)
 [![Dependencies](https://img.shields.io/david/xyy94813/alioss-pocessing-utils-js.svg)](https://david-dm.org/xyy94813/alioss-pocessing-utils-js)
 [![DevDependencies](https://img.shields.io/david/dev/xyy94813/alioss-pocessing-utils-js.svg)](https://david-dm.org/xyy94813/alioss-pocessing-utils-js?type=dev)
 
@@ -31,7 +30,7 @@ There are some example to show how to use alioss-pocessing-utils
 ### ES6
 
 ```js
-import AliOSSProcessUtil from 'alioss-pocessing-utils';
+import AliOSSProcessUtil, { ImageResizeMode } from 'alioss-pocessing-utils';
 
 const aliOSSImageUrl = `https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg`;
 const imgProcesshandler = new AliOSSImageProcessingUtil(aliOSSImageUrl);
