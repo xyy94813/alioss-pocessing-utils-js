@@ -1,6 +1,6 @@
 {
   "name": "alioss-pocessing-utils",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Easy to generate the processing API of AliOSS.",
   "main": "dist/index.js",
   "devDependencies": {
