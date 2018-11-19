@@ -1,6 +1,6 @@
 export * from './AliOSSImageProcessingUtil';
 export {
-  default as AliOSSImageProcessingUtil
+  default as AliOSSImageProcessingUtil,
 } from './AliOSSImageProcessingUtil';
 import AliOSSImageProcessingUtil from './AliOSSImageProcessingUtil';
 

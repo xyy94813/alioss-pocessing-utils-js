@@ -2,11 +2,11 @@
  * File Created: Wednesday, 14th November 2018 3:26:13 pm
  * Author: xyy94813 (xyy94813@sina.com)
  * -----
- * Last Modified: Wednesday, 14th November 2018 5:51:42 pm
+ * Last Modified: Monday, 19th November 2018 3:23:31 pm
  * Modified By: xyy94813 (xyy94813@sina.com>)
  */
 import AliOSSImageProcessingUtil, {
-  ImageResizeMode
+  ImageResizeMode,
 } from '../AliOSSImageProcessingUtil';
 
 const originUrl = 'https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg';
@@ -18,35 +18,35 @@ describe('AliOSSImageProcessingUtil', () => {
       it('mode is fill', () => {
         expect(
           util.getAliOSSImageResizeAPI({
-            mode: ImageResizeMode.FILL
+            mode: ImageResizeMode.FILL,
           })
         ).toMatchSnapshot();
       });
       it('mode is fixed', () => {
         expect(
           util.getAliOSSImageResizeAPI({
-            mode: ImageResizeMode.FIXED
+            mode: ImageResizeMode.FIXED,
           })
         ).toMatchSnapshot();
       });
       it('mode is lfit', () => {
         expect(
           util.getAliOSSImageResizeAPI({
-            mode: ImageResizeMode.LFIT
+            mode: ImageResizeMode.LFIT,
           })
         ).toMatchSnapshot();
       });
       it('mode is mfit', () => {
         expect(
           util.getAliOSSImageResizeAPI({
-            mode: ImageResizeMode.MFIT
+            mode: ImageResizeMode.MFIT,
           })
         ).toMatchSnapshot();
       });
       it('mode is pad', () => {
         expect(
           util.getAliOSSImageResizeAPI({
-            mode: ImageResizeMode.PAD
+            mode: ImageResizeMode.PAD,
           })
         ).toMatchSnapshot();
       });
@@ -56,7 +56,7 @@ describe('AliOSSImageProcessingUtil', () => {
     it('radius is normal', () => {
       expect(
         util.getAliOSSImageCircleAPI({
-          radius: 100
+          radius: 100,
         })
       ).toMatchSnapshot();
     });
@@ -65,8 +65,8 @@ describe('AliOSSImageProcessingUtil', () => {
     it('set width and height', () => {
       expect(
         util.getAliOSSImageCropAPI({
+          height: 100,
           width: 100,
-          height: 100
         })
       ).toMatchSnapshot();
     });
@@ -75,8 +75,8 @@ describe('AliOSSImageProcessingUtil', () => {
     it('x is 100 and i is 0', () => {
       expect(
         util.getAliOSSImageIndexcropAPI({
+          i: 100,
           x: 100,
-          i: 100
         })
       ).toMatchSnapshot();
     });

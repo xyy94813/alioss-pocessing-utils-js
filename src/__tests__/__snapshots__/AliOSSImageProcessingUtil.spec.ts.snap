@@ -2,9 +2,9 @@
 
 exports[`AliOSSImageProcessingUtil getAliOSSImageCircleAPI radius is normal 1`] = `"https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg?x-oss-process=image/circle,r_100"`;
 
-exports[`AliOSSImageProcessingUtil getAliOSSImageCropAPI set width and height 1`] = `"https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg?x-oss-process=image/crop,w_100,h_100"`;
+exports[`AliOSSImageProcessingUtil getAliOSSImageCropAPI set width and height 1`] = `"https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg?x-oss-process=image/crop,h_100,w_100"`;
 
-exports[`AliOSSImageProcessingUtil getAliOSSImageIndexcropAPI x is 100 and i is 0 1`] = `"https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg?x-oss-process=image/indexcrop,x_100,i_100"`;
+exports[`AliOSSImageProcessingUtil getAliOSSImageIndexcropAPI x is 100 and i is 0 1`] = `"https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg?x-oss-process=image/indexcrop,i_100,x_100"`;
 
 exports[`AliOSSImageProcessingUtil getAliOSSImageResizeAPI with mode mode is fill 1`] = `"https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg?x-oss-process=image/resize,m_fill"`;
 

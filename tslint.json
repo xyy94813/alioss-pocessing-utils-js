@@ -2,9 +2,12 @@
   "linterOptions": {
     "exclude": ["node_modules/**/*"]
   },
-  "extends": ["tslint:latest", "tslint-plugin-prettier"],
+  "extends": [
+    "tslint:latest",
+    "tslint-config-prettier",
+    "tslint-plugin-prettier"
+  ],
   "rules": {
-    "object-literal-sort-keys": false,
-    "prettier": [true, ".prettierrc"],
+    "prettier": true
   }
 }

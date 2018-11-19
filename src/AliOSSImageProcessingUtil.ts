@@ -2,7 +2,7 @@
  * File Created: Wednesday, 14th November 2018 3:15:26 pm
  * Author: xyy94813 (xyy94813@sina.com)
  * -----
- * Last Modified: Friday, 16th November 2018 12:33:39 pm
+ * Last Modified: Monday, 19th November 2018 2:56:43 pm
  * Modified By: xyy94813 (xyy94813@sina.com>)
  */
 import AliOSSProcessingUtil from './AliOSSProcessingUtil';
@@ -24,7 +24,7 @@ export enum ImageOperation {
   QUALITY = 'quality',
   WATERMARK = 'watermark',
   AVERAGE_HUE = 'average-hue',
-  INFO = 'info'
+  INFO = 'info',
 }
 
 export enum ImageResizeMode {
@@ -32,7 +32,7 @@ export enum ImageResizeMode {
   MFIT = 'mfit', // proportional scaling. It refers to the minimum image extending out of the rectangle of the specified w and h.
   FILL = 'fill', // fixed width and height. It refers to the cropped and centered minimum image extending out of the rectangle of the specified w and h.
   PAD = 'pad', // fixed width and height, scaling down and filling.
-  FIXED = 'fixed' // fixed width and height, enforced scaling down.
+  FIXED = 'fixed', // fixed width and height, enforced scaling down.
 }
 
 export interface IGetAliOSSImageResizeAPIOptions {
@@ -60,7 +60,7 @@ export enum ImageCropOrigin {
   EAST = 'east',
   SW = 'sw',
   SOUTH = 'south',
-  SE = 'se'
+  SE = 'se',
 }
 
 export interface IGetAliOSSImageCropAPIOptions {
@@ -105,33 +105,33 @@ class AliOSSImageProcessingUtil extends AliOSSProcessingUtil
       longSide,
       shorterSide,
       limit,
-      percent
+      percent,
     } = options;
     return this.getAliOSSImageProcessingAPI(ImageOperation.RESIZE, {
-      m: mode,
-      w: width,
       h: height,
       l: longSide,
-      s: shorterSide,
       limit,
-      percent
+      m: mode,
+      percent,
+      s: shorterSide,
+      w: width,
     });
   };
   public getAliOSSImageCircleAPI = (
     options: IGetAliOSSImageCircleAPIOptions
   ) => {
     return this.getAliOSSImageProcessingAPI(ImageOperation.CIRCLE, {
-      r: options.radius
+      r: options.radius,
     });
   };
   public getAliOSSImageCropAPI = (options: IGetAliOSSImageCropAPIOptions) => {
     const { width, height, xAxis, yAxis, orign } = options;
     return this.getAliOSSImageProcessingAPI(ImageOperation.CROP, {
-      w: width,
+      g: orign,
       h: height,
+      w: width,
       x: xAxis,
       y: yAxis,
-      g: orign
     });
   };
   public getAliOSSImageIndexcropAPI = (
