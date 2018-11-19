@@ -2,7 +2,7 @@
  * File Created: Wednesday, 14th November 2018 3:15:26 pm
  * Author: xyy94813 (xyy94813@sina.com)
  * -----
- * Last Modified: Monday, 19th November 2018 2:56:43 pm
+ * Last Modified: Monday, 19th November 2018 6:37:47 pm
  * Modified By: xyy94813 (xyy94813@sina.com>)
  */
 import AliOSSProcessingUtil from './AliOSSProcessingUtil';
@@ -14,7 +14,7 @@ export enum ImageOperation {
   INDEXCROP = 'indexcrop',
   ROUNDED_CORNERS = 'rounded-corners',
   AUTO_ORIENT = 'auto-orient',
-  RATATE = 'rotate',
+  ROTATE = 'rotate',
   BLUR = 'blur',
   BRIGHT = 'bright',
   CONTRAST = 'contrast',
@@ -77,6 +77,18 @@ export interface IGetAliOSSImageIndexcropAPIOptions {
   y?: number; // Length of each image partition during vertical cutting. Either the x or y parameter must be used.
 }
 
+export interface IGetAliOSSImageRoundedCornersAPIOptions {
+  radius: number; // Radius of the circular area of the image
+}
+
+export interface IGetAliOSSImageAutoOrientAPIOptions {
+  autoOrient: boolean;
+}
+
+export interface IGetAliOSSImageRotateAPIOptions {
+  rotate: number;
+}
+
 interface IAliOSSImageProcessingUtil {
   getAliOSSImageProcessingAPI(operation: ImageOperation, vals: any): string;
   getAliOSSImageResizeAPI(options: IGetAliOSSImageResizeAPIOptions): string;
@@ -85,6 +97,13 @@ interface IAliOSSImageProcessingUtil {
   getAliOSSImageIndexcropAPI(
     options: IGetAliOSSImageIndexcropAPIOptions
   ): string;
+  getAliOSSImageRoundedCornersAPI(
+    options: IGetAliOSSImageRoundedCornersAPIOptions
+  ): string;
+  getAliOSSImageAutoOrientAPI(
+    options: IGetAliOSSImageAutoOrientAPIOptions
+  ): string;
+  getAliOSSImageRotateAPI(options: IGetAliOSSImageRotateAPIOptions): string;
 }
 
 class AliOSSImageProcessingUtil extends AliOSSProcessingUtil
@@ -138,6 +157,28 @@ class AliOSSImageProcessingUtil extends AliOSSProcessingUtil
     options: IGetAliOSSImageIndexcropAPIOptions
   ) => {
     return this.getAliOSSImageProcessingAPI(ImageOperation.INDEXCROP, options);
+  };
+
+  public getAliOSSImageRoundedCornersAPI = (
+    options: IGetAliOSSImageRoundedCornersAPIOptions
+  ) => {
+    return this.getAliOSSImageProcessingAPI(ImageOperation.ROUNDED_CORNERS, {
+      r: options.radius,
+    });
+  };
+  public getAliOSSImageAutoOrientAPI = (
+    options: IGetAliOSSImageAutoOrientAPIOptions
+  ) => {
+    return this.getAliOSSImageProcessingAPI(ImageOperation.AUTO_ORIENT, {
+      value: options.autoOrient ? 1 : 0,
+    });
+  };
+  public getAliOSSImageRotateAPI = (
+    options: IGetAliOSSImageRotateAPIOptions
+  ) => {
+    return this.getAliOSSImageProcessingAPI(ImageOperation.ROTATE, {
+      value: options.rotate,
+    });
   };
 }
 

@@ -1,5 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`AliOSSImageProcessingUtil getAliOSSImageAutoOrientAPI auto origent 1`] = `"https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg?x-oss-process=image/auto-orient,value_1"`;
+
+exports[`AliOSSImageProcessingUtil getAliOSSImageAutoOrientAPI not auto origent 1`] = `"https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg?x-oss-process=image/auto-orient,value_0"`;
+
 exports[`AliOSSImageProcessingUtil getAliOSSImageCircleAPI radius is normal 1`] = `"https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg?x-oss-process=image/circle,r_100"`;
 
 exports[`AliOSSImageProcessingUtil getAliOSSImageCropAPI set width and height 1`] = `"https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg?x-oss-process=image/crop,h_100,w_100"`;
@@ -15,3 +19,9 @@ exports[`AliOSSImageProcessingUtil getAliOSSImageResizeAPI with mode mode is lfi
 exports[`AliOSSImageProcessingUtil getAliOSSImageResizeAPI with mode mode is mfit 1`] = `"https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg?x-oss-process=image/resize,m_mfit"`;
 
 exports[`AliOSSImageProcessingUtil getAliOSSImageResizeAPI with mode mode is pad 1`] = `"https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg?x-oss-process=image/resize,m_pad"`;
+
+exports[`AliOSSImageProcessingUtil getAliOSSImageRotateAPI set rotate 1`] = `"https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg?x-oss-process=image/rotate,value_30"`;
+
+exports[`AliOSSImageProcessingUtil getAliOSSImageRoundedCornersAPI set radius 1`] = `"https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg?x-oss-process=image/rounded-corners,r_30"`;
+
+exports[`AliOSSImageProcessingUtil getAliOSSImageRoundedCornersAPI x is 100 and i is 0 1`] = `"https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg?x-oss-process=image/rounded-corners,r_30"`;

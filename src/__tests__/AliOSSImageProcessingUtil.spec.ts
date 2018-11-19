@@ -2,7 +2,7 @@
  * File Created: Wednesday, 14th November 2018 3:26:13 pm
  * Author: xyy94813 (xyy94813@sina.com)
  * -----
- * Last Modified: Monday, 19th November 2018 3:23:31 pm
+ * Last Modified: Monday, 19th November 2018 6:38:44 pm
  * Modified By: xyy94813 (xyy94813@sina.com>)
  */
 import AliOSSImageProcessingUtil, {
@@ -77,6 +77,40 @@ describe('AliOSSImageProcessingUtil', () => {
         util.getAliOSSImageIndexcropAPI({
           i: 100,
           x: 100,
+        })
+      ).toMatchSnapshot();
+    });
+  });
+  describe('getAliOSSImageRoundedCornersAPI', () => {
+    it('set radius', () => {
+      expect(
+        util.getAliOSSImageRoundedCornersAPI({
+          radius: 30,
+        })
+      ).toMatchSnapshot();
+    });
+  });
+  describe('getAliOSSImageAutoOrientAPI', () => {
+    it('auto origent', () => {
+      expect(
+        util.getAliOSSImageAutoOrientAPI({
+          autoOrient: true,
+        })
+      ).toMatchSnapshot();
+    });
+    it('not auto origent', () => {
+      expect(
+        util.getAliOSSImageAutoOrientAPI({
+          autoOrient: false,
+        })
+      ).toMatchSnapshot();
+    });
+  });
+  describe('getAliOSSImageRotateAPI', () => {
+    it('set rotate', () => {
+      expect(
+        util.getAliOSSImageRotateAPI({
+          rotate: 30,
         })
       ).toMatchSnapshot();
     });
