@@ -1,5 +1,12 @@
-dist/
+# parcel cache
+.cache
+
+# vscode configuration
 .vscode
+
+# output
+dist/
+lib/
 
 # Logs
 logs
