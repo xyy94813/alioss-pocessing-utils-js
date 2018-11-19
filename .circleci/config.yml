@@ -33,6 +33,7 @@ references:
       key: dist-cache-{{ .Branch }}-{{ .Revision }}
       paths:
         - ./dist
+        - ./lib
 
 jobs:
   versions:
