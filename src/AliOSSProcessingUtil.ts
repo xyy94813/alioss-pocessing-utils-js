@@ -2,11 +2,19 @@
  * File Created: Wednesday, 14th November 2018 3:09:23 pm
  * Author: xyy94813 (xyy94813@sina.com)
  * -----
- * Last Modified: Friday, 16th November 2018 12:33:39 pm
+ * Last Modified: Monday, 19th November 2018 7:17:53 pm
  * Modified By: xyy94813 (xyy94813@sina.com>)
  */
 export interface IAliOSSProcessingUtil {
-  getAliOSSProcessingAPI(process: string, operation: string, vals: any): string;
+  getAliOSSProcessingAPI(
+    process: string,
+    operationOptions: IOperationOption[]
+  ): string;
+}
+
+export interface IOperationOption {
+  operation: string;
+  vals: any;
 }
 
 class AliOSSProcessingUtil implements IAliOSSProcessingUtil {
@@ -18,14 +26,21 @@ class AliOSSProcessingUtil implements IAliOSSProcessingUtil {
 
   public getAliOSSProcessingAPI = (
     process: string,
-    operation: string,
-    vals: any
+    operationOptions: IOperationOption[]
   ) => {
-    const valStr = Object.keys(vals)
+    const operationStrs = operationOptions
+      .map(this.getOperationSpliceStr)
+      .join('');
+    return `${this.originUrl}?x-oss-process=${process}${operationStrs}`;
+  };
+
+  private getOperationSpliceStr = (options: IOperationOption) => {
+    const { operation, vals } = options;
+    const valStrs = Object.keys(vals)
       .filter(k => vals[k] !== undefined)
-      .map(k => `${k}_${vals[k]}`)
-      .join(',');
-    return `${this.originUrl}?x-oss-process=${process}/${operation},${valStr}`;
+      .map(k => (k === 'value' ? vals[k] : `${k}_${vals[k]}`));
+    valStrs.unshift(`/${operation}`);
+    return valStrs.join(',');
   };
 }
 

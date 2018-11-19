@@ -82,11 +82,9 @@ easy to get index corop image api
 | x | `number` | Length of each image partition during horizontal cutting. Either the x or y parameter must be used. | `false` |
 | y | `number` | Length of each image partition during vertical cutting. Either the x or y parameter must be used. | `false` |
 
-### getAliOSSImageProcessingAPI(operation: ImageOperation, vals: any): string
+### getAliOSSImageProcessingAPI(operationOptions: IOperationOption[]): string;
 
-other api is base on this api
-
-**operation**
+this api is base on `getAliOSSProcessingAPI`
 
 The operations AliOSS supported for image
 
@@ -112,16 +110,20 @@ enum ImageOperation {
 }
 ```
 
-**vals**
-
-Required parameters for operation
-
 ## AliOSSProcessingUtil
 
-### getAliOSSProcessingAPI(process: string, operation: string, vals: any): string
+### getAliOSSProcessingAPI(process: string, operationOptions: OperationOption[]): string;
+
+> all api base on it
 
 | Property | Type | Description | Required |
 | ------ | ------ | ------ | ------ |
 | process | `string` | `image` or `video` | `true` |
-| operation | `string` | The operations of AliOSS supported | `true` |
-| vals | `object` | The values of AliOSS required | `true` |
+| operationOptions | `IOperationOption` | The operations of AliOSS supported | `true` |
+
+```ts
+interface IOperationOption {
+  operation: string;
+  vals: any;
+}
+```

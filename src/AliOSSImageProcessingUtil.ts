@@ -2,10 +2,10 @@
  * File Created: Wednesday, 14th November 2018 3:15:26 pm
  * Author: xyy94813 (xyy94813@sina.com)
  * -----
- * Last Modified: Monday, 19th November 2018 6:37:47 pm
+ * Last Modified: Monday, 19th November 2018 7:14:05 pm
  * Modified By: xyy94813 (xyy94813@sina.com>)
  */
-import AliOSSProcessingUtil from './AliOSSProcessingUtil';
+import AliOSSProcessingUtil, { IOperationOption } from './AliOSSProcessingUtil';
 
 export enum ImageOperation {
   RESIZE = 'resize',
@@ -25,6 +25,10 @@ export enum ImageOperation {
   WATERMARK = 'watermark',
   AVERAGE_HUE = 'average-hue',
   INFO = 'info',
+}
+
+export interface IImageOperationOptions extends IOperationOption {
+  operation: ImageOperation;
 }
 
 export enum ImageResizeMode {
@@ -90,7 +94,9 @@ export interface IGetAliOSSImageRotateAPIOptions {
 }
 
 interface IAliOSSImageProcessingUtil {
-  getAliOSSImageProcessingAPI(operation: ImageOperation, vals: any): string;
+  getAliOSSImageProcessingAPI(
+    operationOptions: IImageOperationOptions[]
+  ): string;
   getAliOSSImageResizeAPI(options: IGetAliOSSImageResizeAPIOptions): string;
   getAliOSSImageCircleAPI(options: IGetAliOSSImageCircleAPIOptions): string;
   getAliOSSImageCropAPI(options: IGetAliOSSImageCropAPIOptions): string;
@@ -109,10 +115,9 @@ interface IAliOSSImageProcessingUtil {
 class AliOSSImageProcessingUtil extends AliOSSProcessingUtil
   implements IAliOSSImageProcessingUtil {
   public getAliOSSImageProcessingAPI = (
-    operation: ImageOperation,
-    vals: any
+    operationOptions: IImageOperationOptions[]
   ) => {
-    return this.getAliOSSProcessingAPI('image', operation, vals);
+    return this.getAliOSSProcessingAPI('image', operationOptions);
   };
   public getAliOSSImageResizeAPI = (
     options: IGetAliOSSImageResizeAPIOptions
@@ -126,7 +131,7 @@ class AliOSSImageProcessingUtil extends AliOSSProcessingUtil
       limit,
       percent,
     } = options;
-    return this.getAliOSSImageProcessingAPI(ImageOperation.RESIZE, {
+    return this.getSigleOperationAPI(ImageOperation.RESIZE, {
       h: height,
       l: longSide,
       limit,
@@ -139,13 +144,13 @@ class AliOSSImageProcessingUtil extends AliOSSProcessingUtil
   public getAliOSSImageCircleAPI = (
     options: IGetAliOSSImageCircleAPIOptions
   ) => {
-    return this.getAliOSSImageProcessingAPI(ImageOperation.CIRCLE, {
+    return this.getSigleOperationAPI(ImageOperation.CIRCLE, {
       r: options.radius,
     });
   };
   public getAliOSSImageCropAPI = (options: IGetAliOSSImageCropAPIOptions) => {
     const { width, height, xAxis, yAxis, orign } = options;
-    return this.getAliOSSImageProcessingAPI(ImageOperation.CROP, {
+    return this.getSigleOperationAPI(ImageOperation.CROP, {
       g: orign,
       h: height,
       w: width,
@@ -156,30 +161,33 @@ class AliOSSImageProcessingUtil extends AliOSSProcessingUtil
   public getAliOSSImageIndexcropAPI = (
     options: IGetAliOSSImageIndexcropAPIOptions
   ) => {
-    return this.getAliOSSImageProcessingAPI(ImageOperation.INDEXCROP, options);
+    return this.getSigleOperationAPI(ImageOperation.INDEXCROP, options);
   };
 
   public getAliOSSImageRoundedCornersAPI = (
     options: IGetAliOSSImageRoundedCornersAPIOptions
   ) => {
-    return this.getAliOSSImageProcessingAPI(ImageOperation.ROUNDED_CORNERS, {
+    return this.getSigleOperationAPI(ImageOperation.ROUNDED_CORNERS, {
       r: options.radius,
     });
   };
   public getAliOSSImageAutoOrientAPI = (
     options: IGetAliOSSImageAutoOrientAPIOptions
   ) => {
-    return this.getAliOSSImageProcessingAPI(ImageOperation.AUTO_ORIENT, {
+    return this.getSigleOperationAPI(ImageOperation.AUTO_ORIENT, {
       value: options.autoOrient ? 1 : 0,
     });
   };
   public getAliOSSImageRotateAPI = (
     options: IGetAliOSSImageRotateAPIOptions
   ) => {
-    return this.getAliOSSImageProcessingAPI(ImageOperation.ROTATE, {
+    return this.getSigleOperationAPI(ImageOperation.ROTATE, {
       value: options.rotate,
     });
   };
+  private getSigleOperationAPI(operation: ImageOperation, vals: any) {
+    return this.getAliOSSImageProcessingAPI([{ operation, vals }]);
+  }
 }
 
 export default AliOSSImageProcessingUtil;

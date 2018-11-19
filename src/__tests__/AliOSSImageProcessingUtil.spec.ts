@@ -2,10 +2,11 @@
  * File Created: Wednesday, 14th November 2018 3:26:13 pm
  * Author: xyy94813 (xyy94813@sina.com)
  * -----
- * Last Modified: Monday, 19th November 2018 6:38:44 pm
+ * Last Modified: Monday, 19th November 2018 7:19:12 pm
  * Modified By: xyy94813 (xyy94813@sina.com>)
  */
 import AliOSSImageProcessingUtil, {
+  ImageOperation,
   ImageResizeMode,
 } from '../AliOSSImageProcessingUtil';
 
@@ -112,6 +113,27 @@ describe('AliOSSImageProcessingUtil', () => {
         util.getAliOSSImageRotateAPI({
           rotate: 30,
         })
+      ).toMatchSnapshot();
+    });
+  });
+  describe('getAliOSSImageProcessingAPI', () => {
+    it('mutiple operation', () => {
+      expect(
+        util.getAliOSSImageProcessingAPI([
+          {
+            operation: ImageOperation.RESIZE,
+            vals: {
+              h: 200,
+              w: 200,
+            },
+          },
+          {
+            operation: ImageOperation.ROTATE,
+            vals: {
+              value: 90,
+            },
+          },
+        ])
       ).toMatchSnapshot();
     });
   });
