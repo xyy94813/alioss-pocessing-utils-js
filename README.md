@@ -3,6 +3,7 @@
 Easy to generate the processing API of AliOSS.
 
 [![CircleCI branch](https://img.shields.io/circleci/project/github/xyy94813/alioss-pocessing-utils-js/master.svg?style=flat-square)](https://circleci.com/gh/xyy94813/alioss-pocessing-utils-js)
+[![Codecov](https://img.shields.io/codecov/c/github/xyy94813/alioss-pocessing-utils-js/master.svg?style=flat-square)](https://codecov.io/gh/xyy94813/alioss-pocessing-utils-js/branch/master)
 [![Dependencies](https://img.shields.io/david/xyy94813/alioss-pocessing-utils-js.svg)](https://david-dm.org/xyy94813/alioss-pocessing-utils-js)
 [![DevDependencies](https://img.shields.io/david/dev/xyy94813/alioss-pocessing-utils-js.svg)](https://david-dm.org/xyy94813/alioss-pocessing-utils-js?type=dev)
 
