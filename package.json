@@ -18,11 +18,9 @@
   "scripts": {
     "build": "npm run ts && parcel build lib/index.js",
     "ts": "tsc",
-    "ts-watch": "tsc -w",
     "tslint": "tslint -c tslint.json -p tsconfig.json",
     "tslint-check": "tslint-config-prettier-check ./tslint.json",
     "test": "jest",
-    "test-watch": "jest --watch",
     "format": "prettier --write 'src/**/*.ts'"
   },
   "repository": {
