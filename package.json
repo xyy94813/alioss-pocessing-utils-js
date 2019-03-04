@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "devDependencies": {
     "@types/jest": "^23.3.9",
-    "jest": "^23.6.0",
+    "jest": "^24.1.0",
     "nodemon": "^1.18.10",
     "parcel": "^1.10.3",
     "prettier": "^1.15.2",
