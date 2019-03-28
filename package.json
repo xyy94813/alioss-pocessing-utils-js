@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "Easy to generate the processing API of AliOSS.",
   "main": "lib/index.js",
+  "module": "es/index.js",
   "devDependencies": {
     "@types/jest": "^23.3.9",
     "jest": "^24.1.0",
@@ -16,7 +17,7 @@
     "typescript": "^3.1.6"
   },
   "scripts": {
-    "build": "npm run ts && parcel build lib/index.js",
+    "build": "npm run ts && npm run ts -- -m commonjs --outDir lib && parcel build lib/index.js",
     "ts": "tsc",
     "tslint": "tslint -c tslint.json -p tsconfig.json",
     "tslint-check": "tslint-config-prettier-check ./tslint.json",
