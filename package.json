@@ -2,7 +2,7 @@
   "name": "alioss-pocessing-utils",
   "version": "0.1.0",
   "description": "Easy to generate the processing API of AliOSS.",
-  "main": "dist/index.js",
+  "main": "lib/index.js",
   "devDependencies": {
     "@types/jest": "^23.3.9",
     "jest": "^24.1.0",
