@@ -34,7 +34,7 @@ There are some example to show how to use alioss-pocessing-utils
 import AliOSSProcessUtil, { ImageResizeMode } from 'alioss-pocessing-utils';
 
 const aliOSSImageUrl = `https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg`;
-const imgProcesshandler = new AliOSSImageProcessingUtil(aliOSSImageUrl);
+const imgProcesshandler = new AliOSSProcessUtil(aliOSSImageUrl);
 
 imgProcesshandler.getAliOSSImageResizeAPI({
   mode: ResizeMode.FIXED
