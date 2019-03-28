@@ -2,7 +2,7 @@
  * File Created: Wednesday, 14th November 2018 3:26:13 pm
  * Author: xyy94813 (xyy94813@sina.com)
  * -----
- * Last Modified: Monday, 19th November 2018 7:19:12 pm
+ * Last Modified: Thursday, 28th March 2019 4:54:54 pm
  * Modified By: xyy94813 (xyy94813@sina.com>)
  */
 import AliOSSImageProcessingUtil, {
@@ -134,6 +134,33 @@ describe('AliOSSImageProcessingUtil', () => {
             },
           },
         ])
+      ).toMatchSnapshot();
+    });
+  });
+  describe('origin url with query', () => {
+    it('without param', () => {
+      expect(
+        new AliOSSImageProcessingUtil(
+          `${originUrl}?`
+        ).getAliOSSImageAutoOrientAPI({
+          autoOrient: false,
+        })
+      ).toMatchSnapshot();
+    });
+    it('with params', () => {
+      expect(
+        new AliOSSImageProcessingUtil(
+          `${originUrl}?param1=1&param2=a`
+        ).getAliOSSImageAutoOrientAPI({
+          autoOrient: false,
+        })
+      ).toMatchSnapshot();
+      expect(
+        new AliOSSImageProcessingUtil(
+          `${originUrl}?param1=1&param2=a&`
+        ).getAliOSSImageAutoOrientAPI({
+          autoOrient: false,
+        })
       ).toMatchSnapshot();
     });
   });

@@ -25,3 +25,9 @@ exports[`AliOSSImageProcessingUtil getAliOSSImageResizeAPI with mode mode is pad
 exports[`AliOSSImageProcessingUtil getAliOSSImageRotateAPI set rotate 1`] = `"https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg?x-oss-process=image/rotate,30"`;
 
 exports[`AliOSSImageProcessingUtil getAliOSSImageRoundedCornersAPI set radius 1`] = `"https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg?x-oss-process=image/rounded-corners,r_30"`;
+
+exports[`AliOSSImageProcessingUtil origin url with query with params 1`] = `"https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg?param1=1&param2=a&x-oss-process=image/auto-orient,0"`;
+
+exports[`AliOSSImageProcessingUtil origin url with query with params 2`] = `"https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg?param1=1&param2=a&x-oss-process=image/auto-orient,0"`;
+
+exports[`AliOSSImageProcessingUtil origin url with query without param 1`] = `"https://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg?x-oss-process=image/auto-orient,0"`;

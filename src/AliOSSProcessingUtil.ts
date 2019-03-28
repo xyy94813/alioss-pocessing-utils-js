@@ -2,7 +2,7 @@
  * File Created: Wednesday, 14th November 2018 3:09:23 pm
  * Author: xyy94813 (xyy94813@sina.com)
  * -----
- * Last Modified: Monday, 19th November 2018 7:17:53 pm
+ * Last Modified: Thursday, 28th March 2019 5:09:38 pm
  * Modified By: xyy94813 (xyy94813@sina.com>)
  */
 export interface IAliOSSProcessingUtil {
@@ -31,7 +31,16 @@ class AliOSSProcessingUtil implements IAliOSSProcessingUtil {
     const operationStrs = operationOptions
       .map(this.getOperationSpliceStr)
       .join('');
-    return `${this.originUrl}?x-oss-process=${process}${operationStrs}`;
+
+    const connectChar = /(\?).*?$/.test(this.originUrl)
+      ? this.originUrl.endsWith('&') || this.originUrl.endsWith('?')
+        ? ''
+        : '&'
+      : '?';
+
+    return `${
+      this.originUrl
+    }${connectChar}x-oss-process=${process}${operationStrs}`;
   };
 
   private getOperationSpliceStr = (options: IOperationOption) => {
