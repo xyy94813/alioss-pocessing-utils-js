@@ -2,9 +2,11 @@
  * File Created: Wednesday, 14th November 2018 3:09:23 pm
  * Author: xyy94813 (xyy94813@sina.com)
  * -----
- * Last Modified: Thursday, 28th March 2019 5:09:38 pm
+ * Last Modified: Monday, 8th April 2019 3:48:31 pm
  * Modified By: xyy94813 (xyy94813@sina.com>)
  */
+import * as querystring from 'querystring';
+
 export interface IAliOSSProcessingUtil {
   getAliOSSProcessingAPI(
     process: string,
@@ -32,15 +34,10 @@ class AliOSSProcessingUtil implements IAliOSSProcessingUtil {
       .map(this.getOperationSpliceStr)
       .join('');
 
-    const connectChar = /(\?).*?$/.test(this.originUrl)
-      ? this.originUrl.endsWith('&') || this.originUrl.endsWith('?')
-        ? ''
-        : '&'
-      : '?';
-
-    return `${
-      this.originUrl
-    }${connectChar}x-oss-process=${process}${operationStrs}`;
+    const [path, query] = this.originUrl.split('?');
+    const newQuery = query ? querystring.parse(query) : Object.create(null);
+    newQuery['x-oss-process'] = `${process}${operationStrs}`;
+    return `${path}?${querystring.stringify(newQuery)}`;
   };
 
   private getOperationSpliceStr = (options: IOperationOption) => {

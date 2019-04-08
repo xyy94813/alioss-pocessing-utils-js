@@ -2,7 +2,7 @@
  * File Created: Wednesday, 14th November 2018 3:26:13 pm
  * Author: xyy94813 (xyy94813@sina.com)
  * -----
- * Last Modified: Thursday, 28th March 2019 4:54:54 pm
+ * Last Modified: Monday, 8th April 2019 3:56:32 pm
  * Modified By: xyy94813 (xyy94813@sina.com>)
  */
 import AliOSSImageProcessingUtil, {
@@ -20,6 +20,7 @@ describe('AliOSSImageProcessingUtil', () => {
         expect(
           util.getAliOSSImageResizeAPI({
             mode: ImageResizeMode.FILL,
+            width: 200,
           })
         ).toMatchSnapshot();
       });
@@ -27,6 +28,7 @@ describe('AliOSSImageProcessingUtil', () => {
         expect(
           util.getAliOSSImageResizeAPI({
             mode: ImageResizeMode.FIXED,
+            width: 200,
           })
         ).toMatchSnapshot();
       });
@@ -34,6 +36,7 @@ describe('AliOSSImageProcessingUtil', () => {
         expect(
           util.getAliOSSImageResizeAPI({
             mode: ImageResizeMode.LFIT,
+            width: 200,
           })
         ).toMatchSnapshot();
       });
@@ -41,6 +44,7 @@ describe('AliOSSImageProcessingUtil', () => {
         expect(
           util.getAliOSSImageResizeAPI({
             mode: ImageResizeMode.MFIT,
+            width: 200,
           })
         ).toMatchSnapshot();
       });
@@ -48,6 +52,7 @@ describe('AliOSSImageProcessingUtil', () => {
         expect(
           util.getAliOSSImageResizeAPI({
             mode: ImageResizeMode.PAD,
+            width: 200,
           })
         ).toMatchSnapshot();
       });
