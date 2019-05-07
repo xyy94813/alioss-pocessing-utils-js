@@ -2,10 +2,10 @@
  * File Created: Wednesday, 14th November 2018 3:09:23 pm
  * Author: xyy94813 (xyy94813@sina.com)
  * -----
- * Last Modified: Monday, 8th April 2019 3:48:31 pm
+ * Last Modified: Tuesday, 7th May 2019 3:59:56 pm
  * Modified By: xyy94813 (xyy94813@sina.com>)
  */
-import * as querystring from 'querystring';
+import { URL } from 'url';
 
 export interface IAliOSSProcessingUtil {
   getAliOSSProcessingAPI(
@@ -20,10 +20,10 @@ export interface IOperationOption {
 }
 
 class AliOSSProcessingUtil implements IAliOSSProcessingUtil {
-  private originUrl: string;
+  private originUrl: URL;
 
   constructor(originUrl: string) {
-    this.originUrl = originUrl;
+    this.originUrl = new URL(originUrl);
   }
 
   public getAliOSSProcessingAPI = (
@@ -34,10 +34,9 @@ class AliOSSProcessingUtil implements IAliOSSProcessingUtil {
       .map(this.getOperationSpliceStr)
       .join('');
 
-    const [path, query] = this.originUrl.split('?');
-    const newQuery = query ? querystring.parse(query) : Object.create(null);
-    newQuery['x-oss-process'] = `${process}${operationStrs}`;
-    return `${path}?${querystring.stringify(newQuery)}`;
+    const newUrl = new URL(this.originUrl.toString());
+    newUrl.searchParams.set('x-oss-process', `${process}${operationStrs}`)
+    return newUrl.toString();
   };
 
   private getOperationSpliceStr = (options: IOperationOption) => {
