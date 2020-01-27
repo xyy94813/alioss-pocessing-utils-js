@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "module": "es/index.js",
   "devDependencies": {
-    "@types/jest": "^24.0.13",
+    "@types/jest": "^25.1.0",
     "@types/node": "^13.1.6",
     "jest": "^24.1.0",
     "nodemon": "^2.0.1",
